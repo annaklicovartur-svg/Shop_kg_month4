@@ -1,6 +1,30 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from products.models import Products
 from datetime import datetime
+
+def products(request):
+    if request.method == "GET":
+        products = Products.objects.all()
+    return render(
+        request,
+        template_name='products/products_list.html',
+        context={
+            'products': products
+        }
+    )
+
+def products_detail(request, id):
+    if request.method == "GET":
+        products_id = get_object_or_404(Products, id=id)
+    return render(
+        request,
+        template_name='products/products_detail.html',
+        context={
+            'products_id': products_id
+        }
+    )
+
 
 def food(request):
     if request.method == "GET":

@@ -25,6 +25,10 @@ def products_detail(request, id):
         }
     )
 
+def data_time(request):
+    if request.method == "GET":
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return HttpResponse(f"Текущее время - {current_time}")
 
 def food(request):
     if request.method == "GET":

@@ -1,0 +1,32 @@
+<!-- basket/templates/basket/choice_bs.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+</head>
+<body>
+    <h1>Add Product to Basket</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <p>Product Name:</p>
+        <input type="text" name="buy_choice" required>
+        
+        <p>Status:</p>
+        <input type="radio" name="status_bs" value="BUY"> BUY<br>
+        <input type="radio" name="status_bs" value="NOT_BUY" checked> NOT BUY
+        
+        <br><br>
+        <button type="submit">Add to Basket</button>
+        <a href="/basket_list/">Cancel</a>
+    </form>
+    
+    {% if form.errors %}
+        <div style="color: red;">
+            <h3>Errors:</h3>
+            {{ form.errors }}
+        </div>
+    {% endif %}
+</body>
+</html>

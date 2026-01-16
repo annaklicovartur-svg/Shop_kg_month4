@@ -8,7 +8,7 @@ class Products(models.Model):
         ("Education", "Education"),
         ("Travel", "Travel")
     )
-    type_priducts = models.CharField(max_length=100, choices=TYPE_PRODUCTS, default="Education")
+    type_products = models.CharField(max_length=100, choices=TYPE_PRODUCTS, default="Education")
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
